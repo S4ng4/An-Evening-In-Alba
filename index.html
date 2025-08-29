@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
     <title>An Evening in Alba with Pio Cesare | Gran Caffè L'Aquila Philadelphia</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -84,6 +84,14 @@
     </script>
     
     <style>
+        /* Safe Area Variables */
+        :root {
+            --safe-area-top: env(safe-area-inset-top, 0px);
+            --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+            --safe-area-left: env(safe-area-inset-left, 0px);
+            --safe-area-right: env(safe-area-inset-right, 0px);
+        }
+
         /* Custom glassmorphism effects */
         .glass {
             background: rgba(255, 255, 255, 0.1);
@@ -260,13 +268,70 @@
         .carousel-nav button:hover {
             transform: scale(1.1);
         }
+
+        /* Mobile Responsive Improvements */
+        @media (max-width: 768px) {
+            .container {
+                padding-left: max(16px, var(--safe-area-left));
+                padding-right: max(16px, var(--safe-area-right));
+            }
+            
+            .course-card {
+                margin-bottom: 1rem;
+            }
+            
+            .btn-luxury {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Safe Area Support for iOS */
+        @supports (padding: max(0px)) {
+            .container {
+                padding-left: max(16px, var(--safe-area-left));
+                padding-right: max(16px, var(--safe-area-right));
+            }
+        }
+
+        /* Wine Modal Responsive Improvements */
+        #wine-modal {
+            align-items: flex-start;
+            padding-top: calc(2rem + var(--safe-area-top));
+        }
+
+        #wine-modal-content {
+            margin: 0 auto;
+            max-height: calc(100vh - 4rem - var(--safe-area-top) - var(--safe-area-bottom));
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            #wine-modal {
+                padding: calc(1rem + var(--safe-area-top)) calc(0.5rem + var(--safe-area-right)) calc(1rem + var(--safe-area-bottom)) calc(0.5rem + var(--safe-area-left));
+            }
+            
+            #wine-modal-content {
+                padding: 1rem;
+                max-width: calc(100vw - 2rem - var(--safe-area-left) - var(--safe-area-right));
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #wine-modal-content {
+                padding: 0.75rem;
+                max-width: calc(100vw - 1.5rem - var(--safe-area-left) - var(--safe-area-right));
+            }
+        }
     </style>
 </head>
 
 <body class="font-sans text-dark-text bg-beige antialiased overflow-x-hidden">
     
-    <nav class="fixed top-0 w-full z-50 glass-dark backdrop-blur-xl border-b border-white/10">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="fixed top-0 w-full z-50 glass-dark backdrop-blur-xl border-b border-white/10" style="padding-top: var(--safe-area-top);">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8" style="padding-left: max(16px, var(--safe-area-left)); padding-right: max(16px, var(--safe-area-right));">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-4">
                     <img src="gcaLogo.png" 
@@ -294,7 +359,7 @@
         </div>
     </nav>
 
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pattern-dots">
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pattern-dots" style="padding-top: calc(4rem + var(--safe-area-top));">
         <div class="absolute inset-0 bg-hero-gradient animate-gradient-shift bg-[length:200%_200%]"></div>
         
         <div class="absolute inset-0 pointer-events-none">
@@ -334,7 +399,7 @@
     <section id="wines" class="py-16 lg:py-24 bg-gradient-to-br from-espresso to-burgundy text-white relative overflow-hidden">
         <div class="absolute inset-0 pattern-dots opacity-20"></div>
         
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative" style="padding-left: max(16px, var(--safe-area-left)); padding-right: max(16px, var(--safe-area-right));">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 reveal">
                     <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl mb-6 text-shadow-gold">Pio Cesare</h2>
@@ -405,7 +470,7 @@
     </section>
 
     <section id="menu" class="py-16 lg:py-24 bg-cream relative">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8" style="padding-left: max(16px, var(--safe-area-left)); padding-right: max(16px, var(--safe-area-right));">
             <div class="text-center mb-16 reveal">
                 <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-espresso mb-6 text-shadow-gold">
                     Tasting Menu
@@ -545,7 +610,7 @@
     </section>
     
     <section id="closing" class="py-16 lg:py-24 bg-beige text-espresso text-center">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl" style="padding-left: max(16px, var(--safe-area-left)); padding-right: max(16px, var(--safe-area-right));">
         <div class="reveal">
             <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl mb-6 text-shadow-gold animate-fade-in-up">
                 Thank You for Joining Us
@@ -558,8 +623,8 @@
     </div>
 </section>
 
-    <footer class="bg-espresso text-cream py-12 lg:py-16">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <footer class="bg-espresso text-cream py-12 lg:py-16" style="padding-bottom: calc(3rem + var(--safe-area-bottom));">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center" style="padding-left: max(16px, var(--safe-area-left)); padding-right: max(16px, var(--safe-area-right));">
         <div class="flex justify-center mb-6 space-x-4">
             <img src="gcaLogo.png" alt="Gran Caffè L'Aquila Logo" class="h-12 opacity-80">
             <img src="pio-cesare-logo.png" alt="Pio Cesare Logo" class="h-12 opacity-80">
@@ -572,8 +637,8 @@
     </div>
 </footer>
 
-    <div id="wine-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-        <div id="wine-modal-content" class="bg-white/95 p-8 rounded-3xl shadow-2xl max-w-2xl w-full relative transform scale-in">
+    <div id="wine-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm" style="padding: calc(1rem + var(--safe-area-top)) calc(1rem + var(--safe-area-right)) calc(1rem + var(--safe-area-bottom)) calc(1rem + var(--safe-area-left));">
+        <div id="wine-modal-content" class="bg-white/95 p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl shadow-2xl max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-2xl w-full max-h-[90vh] overflow-y-auto relative transform scale-in">
             <button onclick="closeWine()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition-colors duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -658,14 +723,14 @@
             if (!wine) return;
 
             modalContent.innerHTML = `
-                <div class="animate-fade-in-up flex flex-col md:flex-row items-center gap-6 lg:gap-8">
-                    <img src="${wine.image}" alt="${wine.title} bottle" class="w-32 h-auto object-contain shrink-0 filter drop-shadow-xl" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDIwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjUwIiB5PSI4MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIyOTUiIHJ4PSI1MCIgc3Ryb2tlPSIjRDJBNjI3IiBzdHJva2Utd2lkdGg9IjUiLz4KPHBhdGggZD0iTTEwMCA4NVY4MEgyMDAiIHN0cm9rZT0iI0QyQTYyNyIgc3Ryb2tlLXdpZHRoPSI1Ii8+CjxwYXRoIGQ9Ik0xMDAgODBWODVoLTEwMCIgc3Ryb2tlPSIjRDJBNjI3IiBzdHJva2Utd2lkdGg9IjUiLz4KPC9zdmc+'">
-                    <div class="text-center md:text-left">
-                        <h4 class="font-serif text-3xl font-bold text-espresso mb-2">${wine.title}</h4>
-                        <p class="text-sm text-rich-brown italic mb-4">${wine.notes}</p>
-                        <p class="text-gray-700 leading-relaxed">${wine.description}</p>
+                <div class="animate-fade-in-up flex flex-col items-center gap-4 sm:gap-6 lg:gap-8">
+                    <img src="${wine.image}" alt="${wine.title} bottle" class="w-24 sm:w-28 md:w-32 h-auto object-contain shrink-0 filter drop-shadow-xl" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDIwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjUwIiB5PSI4MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIyOTUiIHJ4PSI1MCIgc3Ryb2tlPSIjRDJBNjI3IiBzdHJva2Utd2lkdGg9IjUiLz4KPHBhdGggZD0iTTEwMCA4NVY4MEgyMDAiIHN0cm9rZT0iI0QyQTYyNyIgc3Ryb2tlLXdpZHRoPSI1Ii8+CjxwYXRoIGQ9Ik0xMDAgODBWODVoLTEwMCIgc3Ryb2tlPSIjRDJBNjI3IiBzdHJva2Utd2lkdGg9IjUiLz4KPC9zdmc+">
+                    <div class="text-center w-full">
+                        <h4 class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-espresso mb-2 leading-tight">${wine.title}</h4>
+                        <p class="text-xs sm:text-sm text-rich-brown italic mb-3 sm:mb-4 px-2">${wine.notes}</p>
+                        <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4 px-2">${wine.description}</p>
                     </div>
-                    <button onclick="openTechnicalSheet('${wineKey}')" class="mt-4 px-6 py-2 bg-primary-gold text-white font-bold rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+                    <button onclick="openTechnicalSheet('${wineKey}')" class="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 bg-primary-gold text-white text-sm sm:text-base font-bold rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
                         Comprehensive Guide
                     </button>
                 </div>
