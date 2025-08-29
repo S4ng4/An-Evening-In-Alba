@@ -1,0 +1,748 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An Evening in Alba with Pio Cesare | Gran Caffè L'Aquila Philadelphia</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-gold': '#D4AF37',
+                        'rich-brown': '#8B4513',
+                        'cream': '#F5F5DC',
+                        'espresso': '#3C2414',
+                        'burgundy': '#800020',
+                        'beige': '#F7F3E9',
+                        'copper': '#B87333',
+                        'dark-text': '#2D1810',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'slide-in-left': 'slideInLeft 1s ease-out',
+                        'slide-in-right': 'slideInRight 1s ease-out',
+                        'scale-in': 'scaleIn 0.6s ease-out',
+                        'gradient-shift': 'gradientShift 8s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'shimmer': 'shimmer 2s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.8)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        },
+                        gradientShift: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(212, 175, 55, 0.4)' },
+                            '100%': { boxShadow: '0 0 40px rgba(212, 175, 55, 0.8)' }
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% center' },
+                            '100%': { backgroundPosition: '200% center' }
+                        }
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'hero-gradient': 'linear-gradient(135deg, rgba(60, 36, 20, 0.95) 0%, rgba(139, 69, 19, 0.9) 50%, rgba(128, 0, 32, 0.95) 100%)',
+                        'shimmer': 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom glassmorphism effects */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Advanced hover effects */
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Luxury button with shimmer effect */
+        .btn-luxury {
+            background: linear-gradient(135deg, #D4AF37, #B87333);
+            background-size: 200% 100%;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-luxury::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-luxury:hover::before {
+            left: 100%;
+        }
+        
+        .btn-luxury:hover {
+            background-position: 100% 0;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+        }
+        
+        /* Parallax container */
+        .parallax-container {
+            transform-style: preserve-3d;
+        }
+        
+        .parallax-element {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Course card advanced effects */
+        .course-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+        }
+        
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: inherit;
+        }
+        
+        .course-card:hover::before {
+            opacity: 1;
+        }
+        
+        /* Luxury loading spinner */
+        .luxury-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(212, 175, 55, 0.3);
+            border-top: 3px solid #D4AF37;
+            border-radius: 50%;
+            animation: spin 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg) }
+            100% { transform: rotate(360deg) }
+        }
+        
+        /* Intersection observer reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Luxury text effects */
+        .text-shadow-gold {
+            text-shadow: 0 2px 4px rgba(212, 175, 55, 0.3);
+        }
+        
+        /* Advanced grid layouts */
+        .masonry {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .masonry {
+                column-count: 2;
+            }
+        }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Luxury focus states */
+        .luxury-focus:focus {
+            outline: 2px solid #D4AF37;
+            outline-offset: 2px;
+        }
+        
+        /* Background patterns */
+        .pattern-dots {
+            background-image: radial-gradient(circle, rgba(212, 175, 55, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        /* Carousel styles */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            flex: 1 0 100%;
+        }
+        
+        .carousel-nav button {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .carousel-nav button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body class="font-sans text-dark-text bg-beige antialiased overflow-x-hidden">
+    
+    <nav class="fixed top-0 w-full z-50 glass-dark backdrop-blur-xl border-b border-white/10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <img src="gcaLogo.png" 
+                            alt="Gran Caffè L'Aquila" 
+                            class="h-10 w-auto object-contain"
+                            onerror="this.style.display='none'">
+                    <div class="hidden sm:block">
+                        <h1 class="font-serif text-xl text-primary-gold">Gran Caffè L'Aquila</h1>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#menu" class="text-white/90 hover:text-primary-gold transition-colors duration-300">Menu</a>
+                    <a href="#wines" class="text-white/90 hover:text-primary-gold transition-colors duration-300">Wines</a>
+                    <a href="#experience" class="text-white/90 hover:text-primary-gold transition-colors duration-300"></a>
+                </div>
+                
+                <div class="flex items-center">
+                    <img src="pio-cesare-logo.png" 
+                            alt="Pio Cesare" 
+                            class="h-8 w-auto object-contain opacity-90"
+                            onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pattern-dots">
+        <div class="absolute inset-0 bg-hero-gradient animate-gradient-shift bg-[length:200%_200%]"></div>
+        
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-20 left-10 w-2 h-2 bg-primary-gold/30 rounded-full animate-float"></div>
+            <div class="absolute top-40 right-20 w-3 h-3 bg-primary-gold/20 rounded-full animate-float" style="animation-delay: 1s;"></div>
+            <div class="absolute bottom-32 left-1/4 w-1.5 h-1.5 bg-primary-gold/40 rounded-full animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 right-1/3 w-2.5 h-2.5 bg-primary-gold/25 rounded-full animate-float" style="animation-delay: 3s;"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
+            <div class="reveal">
+                <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-6 leading-tight text-shadow-gold">
+                    An Evening in Alba
+                    <span class="block text-primary-gold animate-glow">With Pio Cesare</span>
+                </h1>
+            </div>
+            
+            <div class="reveal" style="animation-delay: 0.2s;">
+                <p class="text-xl sm:text-2xl lg:text-3xl mb-4 font-light tracking-wide">
+                    Hosted by Iconic Winemaker Cesare Benvenuto
+                </p>
+            </div>
+            
+            <div class="reveal" style="animation-delay: 0.4s;">
+                <p class="text-base sm:text-lg lg:text-xl mb-12 max-w-3xl mx-auto leading-relaxed opacity-90">
+                    An unforgettable journey through his families prestigious wines, Alba food pairings by Culinary Director Riccardo Longo, including the Alba truffle.
+                </p>
+            </div>
+            
+            <div class="reveal" style="animation-delay: 0.6s;">
+                <a href="#menu" class="btn-luxury inline-block px-8 py-4 rounded-full text-lg font-semibold text-espresso luxury-focus">
+                    Discover the Menu
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="wines" class="py-16 lg:py-24 bg-gradient-to-br from-espresso to-burgundy text-white relative overflow-hidden">
+        <div class="absolute inset-0 pattern-dots opacity-20"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl mb-6 text-shadow-gold">Pio Cesare</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-primary-gold to-copper mx-auto mb-6 rounded-full"></div>
+                    <p class="text-xl lg:text-2xl text-primary-gold font-light">Historic Piemonte Winery Since 1881</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div class="space-y-6 reveal animate-slide-in-left">
+                        <p class="text-lg lg:text-xl leading-relaxed opacity-90">
+                            Cesare Benvenuto, from the historic Pio Cesare winery, will take you on an 
+                            unforgettable journey through his families prestigious wines.
+                        </p>
+                        <p class="text-lg lg:text-xl leading-relaxed opacity-90">
+                            Experience the authentic flavors of Alba through perfect pairings crafted 
+                            by Culinary Director Riccardo Longo, featuring the prized Alba truffle.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-6 mt-8">
+                            <div class="glass text-center p-6 rounded-xl">
+                                <div class="text-primary-gold font-semibold text-sm mb-2 uppercase tracking-wider">Heritage</div>
+                                <div class="text-3xl font-bold">1881</div>
+                            </div>
+                            <div class="glass text-center p-6 rounded-xl">
+                                <div class="text-primary-gold font-semibold text-sm mb-2 uppercase tracking-wider">Generations</div>
+                                <div class="text-3xl font-bold">5th</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full relative reveal animate-slide-in-right">
+                        <div class="carousel-container rounded-2xl shadow-lg">
+                            <div class="carousel-track">
+                                <div class="carousel-item">
+                                    <img src="04slide-home.jpg" alt="Pio Cesare Winery 1" class="w-full h-auto object-cover rounded-2xl">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="01slide-home.jpg" alt="Pio Cesare Winery 2" class="w-full h-auto object-cover rounded-2xl">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="02slide-home.jpg" alt="Pio Cesare Winery 3" class="w-full h-auto object-cover rounded-2xl">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="05slide-home.jpg" alt="Pio Cesare Winery 4" class="w-full h-auto object-cover rounded-2xl">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="06slide-home.jpg" alt="Pio Cesare Winery 5" class="w-full h-auto object-cover rounded-2xl">
+                                </div>
+                                
+                            </div>
+                            <div class="carousel-nav absolute inset-y-0 flex items-center justify-between w-full px-4">
+                                <button onclick="prevSlide()" class="p-2 bg-white/30 rounded-full text-white backdrop-blur-sm hover:bg-white/50 luxury-focus">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                    </svg>
+                                </button>
+                                <button onclick="nextSlide()" class="p-2 bg-white/30 rounded-full text-white backdrop-blur-sm hover:bg-white/50 luxury-focus">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-16 lg:py-24 bg-cream relative">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-espresso mb-6 text-shadow-gold">
+                    Tasting Menu
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-gold to-copper mx-auto mb-6 rounded-full"></div>
+                <p class="text-lg lg:text-xl text-rich-brown max-w-3xl mx-auto leading-relaxed">
+                    A culinary journey through Piemonte, perfectly paired with historic Pio Cesare wines
+                </p>
+            </div>
+            
+            <div class="grid gap-6 lg:gap-8 max-w-7xl mx-auto">
+                
+                <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+                    <div class="course-card relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-2xl hover-lift reveal">
+                        <div class="mb-6">
+                            <h3 class="font-serif text-2xl text-espresso mb-3">Aperitivo</h3>
+                            <h4 class="font-semibold text-rich-brown text-lg mb-4">Formaggi e Soma d'Aj</h4>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Selection of Piedmont cheeses including Toma, Castelrosso, and Gorgonzola Piccante, as well as Bresaola di Fassona & Garlic rubbed Casereeccio bread. Accompanied with Piemonte Chestnut honey & Fig jam.
+                            </p>
+                            <div class="glass rounded-xl p-4 mb-6">
+                                <div class="text-xs text-rich-brown font-semibold mb-2 uppercase tracking-wider">Wine Pairing</div>
+                                <div class="font-serif text-espresso text-lg mb-1">Nebbiolo, Rosy (2023)</div>
+                                <div class="text-sm text-gray-600 italic">Fun, fruity expression of Langhe Nebbiolo in Rosato form</div>
+                            </div>
+                        </div>
+                        <button onclick="openWine('nebbiolo-rosy')" class="btn-luxury w-full py-3 px-6 rounded-xl text-sm font-semibold text-espresso luxury-focus">
+                            Explore This Wine
+                        </button>
+                    </div>
+
+                    <div class="course-card relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-2xl hover-lift reveal">
+                        <div class="mb-6">
+                            <h3 class="font-serif text-2xl text-espresso mb-3">Antipasto</h3>
+                            <h4 class="font-semibold text-rich-brown text-lg mb-4">Bagna Cauda</h4>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Roasted organic root vegetables including beets, fennel, carrot, peppers, & parsnip served with a hot extra virgin olive oil and roast garlic fonduta dip.
+                            </p>
+                            <div class="glass rounded-xl p-4 mb-6">
+                                <div class="text-xs text-rich-brown font-semibold mb-2 uppercase tracking-wider">Wine Pairing</div>
+                                <div class="font-serif text-espresso text-lg mb-1">Chardonnay, Pio Cesare Piodilei (2022)</div>
+                                <div class="text-sm text-gray-600 italic">Elegant oak aged Chardonnay dried fruit, vanilla, elegant & spice. A beautiful & rich expression of Chardonnay</div>
+                            </div>
+                        </div>
+                        <button onclick="openWine('chardonnay-piodilei')" class="btn-luxury w-full py-3 px-6 rounded-xl text-sm font-semibold text-espresso luxury-focus">
+                            Explore This Wine
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+                    <div class="course-card relative bg-gradient-to-br from-cream to-beige rounded-2xl p-6 lg:p-8 shadow-2xl border-2 border-primary-gold/30 hover-lift reveal">
+                        <div class="mb-6">
+                            <h3 class="font-serif text-2xl text-espresso mb-3">Primi</h3>
+                            <h4 class="font-semibold text-rich-brown text-lg mb-4">Agnolotti del Plin</h4>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Homemade Piemonte style dumplings stuffed with veal, pork, onion, & herbs topped with butter and sage. Accompanied with a gastronomic white truffle gelato.
+                            </p>
+                            <div class="glass rounded-xl p-4 mb-6">
+                                <div class="text-xs text-rich-brown font-semibold mb-2 uppercase tracking-wider">Wine Pairing</div>
+                                <div class="font-serif text-espresso text-lg mb-1">Barbera d'Alba, Pio Cesare (2020)</div>
+                                <div class="text-sm text-gray-600 italic">Refined oak aged Barbera produced in Alba. Features notes of ripe cherries, baking spice and delicate floral notes</div>
+                            </div>
+                        </div>
+                        <button onclick="openWine('barbera-dalba')" class="btn-luxury w-full py-3 px-6 rounded-xl text-sm font-semibold text-espresso luxury-focus">
+                            Explore This Wine
+                        </button>
+                    </div>
+
+                    <div class="course-card relative bg-gradient-to-br from-cream to-beige rounded-2xl p-6 lg:p-8 shadow-2xl border-2 border-primary-gold/30 hover-lift reveal">
+                        <div class="mb-6">
+                            <h3 class="font-serif text-2xl text-espresso mb-3">Primi</h3>
+                            <h4 class="font-semibold text-rich-brown text-lg mb-4">Tajarini al Tartufo d'Alba</h4>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Hand rolled Piemonte style egg noodles tossed with Langhe farmer's butter & shaved Alba truffle.
+                            </p>
+                            <div class="glass rounded-xl p-4 mb-6">
+                                <div class="text-xs text-rich-brown font-semibold mb-2 uppercase tracking-wider">Wine Pairing</div>
+                                <div class="font-serif text-espresso text-lg mb-1">Barbaresco, Pio Cesare (2019)</div>
+                                <div class="text-sm text-gray-600 italic">The essence of Barbaresco in the bottle. Notes of frutti di bosco, strawberries, violets, spice, a hint of tar and a signature minerality wrapped in perfectly balance tannins</div>
+                            </div>
+                        </div>
+                        <button onclick="openWine('barbaresco')" class="btn-luxury w-full py-3 px-6 rounded-xl text-sm font-semibold text-espresso luxury-focus">
+                            Explore This Wine
+                        </button>
+                    </div>
+                </div>
+
+                <div class="course-card relative bg-gradient-to-r from-burgundy to-espresso text-white rounded-2xl p-8 lg:p-12 shadow-2xl hover-lift reveal">
+                    <div class="text-center">
+                        <h3 class="font-serif text-2xl lg:text-3xl mb-4">Sorbetto di Pio Cesare Barolo agli Agrumi</h3>
+                        <div class="w-32 h-0.5 bg-primary-gold mx-auto mb-4 rounded-full"></div>
+                        <p class="text-lg opacity-90">
+                            To cleanse the palate by Italian Gelato Champion Stefano Biasini
+                        </p>
+                    </div>
+                </div>
+
+                <div class="course-card relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-2xl hover-lift reveal">
+                    <div class="mb-6">
+                        <h3 class="font-serif text-2xl lg:text-3xl text-espresso mb-3">Secondo</h3>
+                        <h4 class="font-semibold text-rich-brown text-xl mb-4">Brasato al Barolo</h4>
+                        <p class="text-gray-700 leading-relaxed mb-6 text-lg">
+                            Braised beef slow cooked for 14 hours in Pio Cesare Barolo wine, cippolini onions, organic carrots, celery, sage, rosemary, aromatic herbs & a hint of Alba truffle salt. Served over Borlotti bean homemade polenta.
+                        </p>
+                        <div class="glass rounded-xl p-6 mb-6">
+                            <div class="text-xs text-rich-brown font-semibold mb-2 uppercase tracking-wider">Wine Pairing</div>
+                            <div class="font-serif text-espresso text-xl mb-2">Barolo, Pio Cesare Cru: Mosconi (2018)</div>
+                            <div class="text-sm text-gray-600 italic leading-relaxed">A masterwork French oak aged Barolo from the renowned Mosconi Cru site in Monforte d'Alba, Commune of Barolo. The Mosconi Cru provides limestone rich soil which allows Barolo to showcase great structure and intensity. The harmonious orchestration of notes including plum, cherry, rose, violet, tar & tobacco enveloped with a mineral finish. A poetic journey in Barolo.</div>
+                        </div>
+                    </div>
+                    <button onclick="openWine('barolo-mosconi')" class="btn-luxury w-full py-3 px-6 rounded-xl text-sm font-semibold text-espresso luxury-focus">
+                        Explore This Wine
+                    </button>
+                </div>
+
+                <div class="course-card relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-2xl hover-lift reveal">
+                    <div class="mb-6">
+                        <h3 class="font-serif text-2xl lg:text-3xl text-espresso mb-3">Dolce</h3>
+                        <h4 class="font-semibold text-rich-brown text-xl mb-4">Piemonte Verticale di Gelato</h4>
+                        <p class="text-gray-700 leading-relaxed mb-6 text-lg">
+                            A Piemonte focused selection of gelato by Italian Gelato Champion Stefano Biasini<br>
+                            <span class="font-semibold">"Nocciola delle Langhe" • "Gianduia" • "Fondente"</span>
+                        </p>
+                        <div class="glass rounded-xl p-6 mb-6">
+                            <div class="text-xs text-rich-brown font-semibold mb-2 uppercase tracking-wider">Dessert Wine Pairing</div>
+                            <div class="font-serif text-espresso text-xl mb-2">Barolo Chinato, Pio Cesare</div>
+                            <div class="text-sm text-gray-600 italic">Rich dessert wine version of Barolo infused with herbs, spices & cinchona bark</div>
+                        </div>
+                    </div>
+                    <button onclick="openWine('barolo-chinato')" class="btn-luxury w-full py-3 px-6 rounded-xl text-sm font-semibold text-espresso luxury-focus">
+                        Explore This Wine
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="closing" class="py-16 lg:py-24 bg-beige text-espresso text-center">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+        <div class="reveal">
+            <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl mb-6 text-shadow-gold animate-fade-in-up">
+                Thank You for Joining Us
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-primary-gold to-copper mx-auto mb-6 rounded-full animate-scale-in" style="animation-delay: 0.2s;"></div>
+            <p class="text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed opacity-90 animate-fade-in-up" style="animation-delay: 0.4s;">
+                We thank our guests for joining us on this incredible sensory and culinary journey through the extraordinary flavors of Piedmont. Your presence made this evening unforgettable.
+            </p>
+        </div>
+    </div>
+</section>
+
+    <footer class="bg-espresso text-cream py-12 lg:py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="flex justify-center mb-6 space-x-4">
+            <img src="gcaLogo.png" alt="Gran Caffè L'Aquila Logo" class="h-12 opacity-80">
+            <img src="pio-cesare-logo.png" alt="Pio Cesare Logo" class="h-12 opacity-80">
+        </div>
+        <div class="max-w-xl mx-auto">
+            <p class="text-sm opacity-70 mb-2">Gran Caffè L'Aquila & Pio Cesare</p>
+            <p class="text-xs opacity-50 mb-2">&copy; 2025 All rights reserved. Crafted with passion.</p>
+            <p class="text-xs opacity-50">Images sourced from Pio Cesare.it</p>
+        </div>
+    </div>
+</footer>
+
+    <div id="wine-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div id="wine-modal-content" class="bg-white/95 p-8 rounded-3xl shadow-2xl max-w-2xl w-full relative transform scale-in">
+            <button onclick="closeWine()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div id="modal-content-placeholder">
+                <div class="flex justify-center">
+                    <div class="luxury-spinner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Reveal elements on scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // Wine Modal Logic
+        const wineFileMapping = {
+            'nebbiolo-rosy': 'RosyPioCesare.html',
+            'chardonnay-piodilei': 'ChardonnayPiodileiPioCesare.html',
+            'barbera-dalba': 'BarberaAlbaPioCesare.html',
+            'barbaresco': 'Barbaresco.html',
+            'barolo-mosconi': 'BaroloMosconiPioCesare.html',
+            'barolo-chinato': 'BaroloChinatoPioCesare.html'
+        };
+
+        const wineDetails = {
+            'nebbiolo-rosy': {
+                title: 'Nebbiolo, Rosy (2023)',
+                image: 'rosy.png',
+                description: "A fun, fruity and approachable expression of Langhe Nebbiolo in its Rosato form. Aged in stainless steel tanks to preserve its vibrant fruit character. Notes of red berries, rose petals, and a crisp minerality make it a perfect aperitivo.",
+                notes: 'Food Pairing: Fresh Cheeses, Cured Meats, Light Pasta Dishes'
+            },
+            'chardonnay-piodilei': {
+                title: 'Chardonnay, Pio Cesare Piodilei (2022)',
+                image: 'chardonnay.png',
+                description: "An elegant, oak-aged Chardonnay from a single vineyard. It showcases a beautiful richness with notes of dried fruit, vanilla, and a delicate spice. A true and elegant expression of Chardonnay with a long, satisfying finish.",
+                notes: 'Food Pairing: Roasted Vegetables, Rich Fish, Truffled Dishes'
+            },
+            'barbera-dalba': {
+                title: 'Barbera d\'Alba, Pio Cesare (2020)',
+                image: 'barberaDalba.png',
+                description: "A refined and well-structured Barbera d'Alba aged in French oak barrels. This wine features notes of ripe cherries, baking spice, and delicate floral hints. Its bright acidity and smooth tannins make it a fantastic food-pairing wine.",
+                notes: 'Food Pairing: Agnolotti, Roasted Meats, Hard Cheeses'
+            },
+            'barbaresco': {
+                title: 'Barbaresco, Pio Cesare (2019)',
+                image: 'Barbaresco.png',
+                description: "The essence of Barbaresco in a bottle. This wine offers a complex bouquet of 'frutti di bosco' (wild berries), strawberries, violets, and spice, with a hint of tar. Perfectly balanced tannins and a signature minerality create a harmonious experience.",
+                notes: 'Food Pairing: Truffle Pasta, Risotto, Veal'
+            },
+            'barolo-mosconi': {
+                title: 'Barolo, Pio Cesare Cru: Mosconi (2018)',
+                image: 'baroloMosconi.png',
+                description: "A masterwork Barolo from the renowned Mosconi Cru site in Monforte d'Alba. The limestone-rich soil gives this wine great structure and intensity. A poetic journey with notes of plum, cherry, rose, violet, and tobacco, all wrapped in a long mineral finish.",
+                notes: 'Food Pairing: Braised Beef, Game Meats, Aged Pecorino'
+            },
+            'barolo-chinato': {
+                title: 'Barolo Chinato, Pio Cesare',
+                image: 'baroloChinato.png',
+                description: "A rich, fortified dessert wine version of Barolo, infused with a secret blend of herbs, spices, and cinchona bark. Sweet yet complex, it offers notes of citrus peel, dried figs, and exotic spices, with a pleasantly bitter finish.",
+                notes: 'Food Pairing: Dark Chocolate, Nut-based Desserts, Gelato'
+            }
+        };
+
+        const modal = document.getElementById('wine-modal');
+        const modalContent = document.getElementById('modal-content-placeholder');
+
+        function openWine(wineKey) {
+            const wine = wineDetails[wineKey];
+            if (!wine) return;
+
+            modalContent.innerHTML = `
+                <div class="animate-fade-in-up flex flex-col md:flex-row items-center gap-6 lg:gap-8">
+                    <img src="${wine.image}" alt="${wine.title} bottle" class="w-32 h-auto object-contain shrink-0 filter drop-shadow-xl" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDIwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjUwIiB5PSI4MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIyOTUiIHJ4PSI1MCIgc3Ryb2tlPSIjRDJBNjI3IiBzdHJva2Utd2lkdGg9IjUiLz4KPHBhdGggZD0iTTEwMCA4NVY4MEgyMDAiIHN0cm9rZT0iI0QyQTYyNyIgc3Ryb2tlLXdpZHRoPSI1Ii8+CjxwYXRoIGQ9Ik0xMDAgODBWODVoLTEwMCIgc3Ryb2tlPSIjRDJBNjI3IiBzdHJva2Utd2lkdGg9IjUiLz4KPC9zdmc+'">
+                    <div class="text-center md:text-left">
+                        <h4 class="font-serif text-3xl font-bold text-espresso mb-2">${wine.title}</h4>
+                        <p class="text-sm text-rich-brown italic mb-4">${wine.notes}</p>
+                        <p class="text-gray-700 leading-relaxed">${wine.description}</p>
+                    </div>
+                    <button onclick="openTechnicalSheet('${wineKey}')" class="mt-4 px-6 py-2 bg-primary-gold text-white font-bold rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+                        Comprehensive Guide
+                    </button>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeWine() {
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openTechnicalSheet(wineKey) {
+            const wineFile = wineFileMapping[wineKey];
+            if (wineFile) {
+                // Open the wine technical sheet in a new tab
+                window.open(wineFile, '_blank');
+            } else {
+                console.error('Wine file not found for key:', wineKey);
+            }
+        }
+
+        // Close modal on outside click
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeWine();
+            }
+        });
+
+        // Carousel Logic
+        let currentSlide = 0;
+        const track = document.querySelector('.carousel-track');
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        // Add touch swipe functionality for mobile
+        let touchstartX = 0;
+        let touchendX = 0;
+
+        const gestureZone = document.querySelector('.carousel-container');
+
+        gestureZone.addEventListener('touchstart', function(event) {
+            touchstartX = event.changedTouches[0].screenX;
+        }, false);
+
+        gestureZone.addEventListener('touchend', function(event) {
+            touchendX = event.changedTouches[0].screenX;
+            handleGesture();
+        }, false); 
+
+        function handleGesture() {
+            if (touchendX < touchstartX) {
+                // Swiped left
+                nextSlide();
+            }
+            if (touchendX > touchstartX) {
+                // Swiped right
+                prevSlide();
+            }
+        }
+    </script>
+</body>
+</html>
